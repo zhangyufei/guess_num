@@ -20,9 +20,9 @@ describe("Number", function () {
     it("shouldn't be repeated ", function () {
         var num = Number.create();
         var a = parseInt(num / 1000);
-        var b = parseInt((num - a) / 100);
-        var c = parseInt((num - a - b) / 10);
-        var d = parseInt(num - a - b - c);
+        var b = parseInt((num - a * 1000) / 100);
+        var c = parseInt((num - a * 1000 - b * 100) / 10);
+        var d = num % 10;
 
         expect(a != b && a != c && a != d && b != c && b != d && c != d).toBe(true);
     });
