@@ -15,7 +15,7 @@ describe("Number", function () {
         var num = Number.create();
 
         expect(num >= 1000 && num <= 9999).toBe(true)
-    })
+    });
 
     it("shouldn't be repeated ", function () {
         var num = Number.create();

@@ -13,6 +13,7 @@
     <!-- include src files here... -->
     <script type="text/javascript" src="src/GenerateFourDigit.js"></script>
     <script type="text/javascript" src="src/TwoNumIs%3FA%3FB.js"></script>
+    <script type="text/javascript" src="src/GuessResults.js"></script>
 
     <!-- include fixture files here... -->
     <!--<script type="text/javascript" src="spec/fixture/fixtures.js"></script>-->
@@ -20,6 +21,7 @@
     <!-- include spec files here... -->
     <script type="text/javascript" src="spec/generate_four_digit_spec.js"></script>
     <script type="text/javascript" src="spec/two_num_is_%3FA%3FB_spec.js"></script>
+    <script type="text/javascript" src="spec/guess_results_spec.js"></script>
 
 
 
@@ -55,9 +57,10 @@
 </head>
 
 <body>
-  <input>
+  <input id="num">
   <br>
-  <button>开始</button>
+  <button id='start' onclick="GuessResults.start_play()">开始游戏</button>
+  <button id='results' onclick="GuessResults.start_guess_number()" ng-disabled="disabled">猜数字</button>
 
 </body>
 </html>
