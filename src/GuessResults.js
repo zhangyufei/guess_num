@@ -6,15 +6,12 @@ GuessResults.start_play = function () {
     var number = Number.create();
     localStorage.setItem("number", number);
     localStorage.setItem("count", 6);
-    document.getElementById('results').disabled = false;
+    document.getElementById('guess').disabled = false;
     document.getElementById('num').value = '';
+    document.getElementById('results').innerHTML = '';
 }
 
 GuessResults.start_guess_number = function () {
-    var number = localStorage.getItem('number');
-    if (!number) {
-        document.getElementById('results').disabled = true;
-    }
     var count = localStorage.getItem('count');
     count -= 1;
     localStorage.setItem("count", count);
@@ -30,12 +27,10 @@ GuessResults.compare_two_numbers = function () {
     var results = SimilarityIsWhatType.is_what_type(num1, num2);
     console.log(num1, num2, "num")
     if (results == '4A0B') {
-        console.log('游戏成功');
-        localStorage.removeItem("number");
+        document.getElementById('results').innerHTML = results + "恭喜，游戏成功！";
     }
     if (count == 0) {
-        console.log('游戏失败')
-        document.getElementById('results').disabled = true;
-        localStorage.removeItem("number");
+        document.getElementById('results').innerHTML = results + "很遗憾，游戏失败！";
+        document.getElementById('guess').disabled = true;
     }
 }
