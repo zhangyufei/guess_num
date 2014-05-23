@@ -27,4 +27,16 @@ describe("SimilarityIsWhatType", function () {
         expect(Type).toBe("2A2B");
     });
 
+    it("should be compare 1234 and 1000 to 1A0B ", function () {
+        var Type = SimilarityIsWhatType.is_what_type(1234, 1000);
+
+        expect(Type).toBe("1A0B");
+    });
+
+    it("should be compare 1234 and 2000 to 0A1B ", function () {
+        var Type = SimilarityIsWhatType.is_what_type(1234, 2000);
+
+        expect(Type).toBe("0A1B");
+    });
+
 });
