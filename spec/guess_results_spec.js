@@ -95,6 +95,25 @@ describe("GuessResults", function () {
         expect(show1).toBe("1A0B");
         expect(show2).toBe("4A0B恭喜，游戏成功！");
     });
-   
+
+    it("should ran out of the chances and the results is  1A0B很遗憾，游戏失败！", function () {
+        var number = JSON.parse(localStorage.getItem("number"));
+        document.getElementById('num').value = change_number(number);
+        document.getElementById('guess').click();
+        document.getElementById('num').value = change_number(number);
+        document.getElementById('guess').click();
+        document.getElementById('num').value = change_number(number);
+        document.getElementById('guess').click();
+        document.getElementById('num').value = change_number(number);
+        document.getElementById('guess').click();
+        document.getElementById('num').value = change_number(number);
+        document.getElementById('guess').click();
+        document.getElementById('num').value = change_number(number);
+        document.getElementById('guess').click();
+        var show1 = document.getElementById('results').innerHTML;
+
+        expect(show1).toBe("1A0B很遗憾，游戏失败！");
+    });
+
 
 });
