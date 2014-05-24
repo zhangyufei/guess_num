@@ -39,3 +39,4 @@ GuessResults.compare_two_numbers = function () {
         document.getElementById('results').innerHTML = results;
     }
 }
+

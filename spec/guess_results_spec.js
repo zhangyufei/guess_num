@@ -7,8 +7,6 @@ describe("GuessResults", function () {
 
     afterEach(function () {
         document.getElementById('results').innerHTML = '';
-        document.getElementById('guess').disabled = 'disabled';
-        document.getElementById('num').disabled = 'disabled';
         localStorage.clear();
     });
 
@@ -21,7 +19,7 @@ describe("GuessResults", function () {
     });
 
     it("should start play game", function () {
-        document.getElementById('start').onclick();
+        document.getElementById('start').click();
         var start = document.getElementById("num").disabled;
         var guess_num = document.getElementById('guess').disabled;
 
@@ -31,13 +29,17 @@ describe("GuessResults", function () {
 });
 
 describe("GuessResults", function () {
+    beforeEach(function(){
+        init();
+    })
+
     afterEach(function(){
         document.getElementById('num').value = '';
         document.getElementById('results').innerHTML = '';
     })
 
     it("should have six opportunities",function(){
-        document.getElementById('start').onclick();
+        document.getElementById('start').click();
         var count = JSON.parse(localStorage.getItem("count"));
 
         expect(count).toBe(6);
@@ -45,11 +47,54 @@ describe("GuessResults", function () {
 
     it ("should reduce chance once again to guess number",function(){
         var count1= JSON.parse(localStorage.getItem("count"));
-        document.getElementById('guess').onclick();
+        document.getElementById('guess').click();
         var count2 = JSON.parse(localStorage.getItem("count"));
 
         expect(count1-count2).toBe(1);
     });
+
+    it("should first time to 4A0B恭喜，游戏成功！",function(){
+        var number = JSON.parse(localStorage.getItem("number"));
+        document.getElementById('num').value = number;
+        document.getElementById('guess').click();
+        var show = document.getElementById('results').innerHTML;
+
+        expect(show).toBe("4A0B恭喜，游戏成功！");
+    })
+
+    it("should first time to 1A0B and second time to 4A0B恭喜，游戏成功！",function(){
+        var number = JSON.parse(localStorage.getItem("number"));
+        document.getElementById('num').value = 1000;
+        document.getElementById('guess').click();
+        var show1 = document.getElementById('results').innerHTML;
+        document.getElementById('num').value = number;
+        document.getElementById('guess').click();
+        var show2 = document.getElementById('results').innerHTML;
+
+        expect(show1).toBe("1A0B");
+        expect(show2).toBe("4A0B恭喜，游戏成功！");
+    })
+
+    it ("should first time to 1A0B and six time to 4A0B恭喜，游戏成功！",function(){
+        var number = JSON.parse(localStorage.getItem("number"));
+        document.getElementById('num').value = 1000;
+        document.getElementById('guess').click();
+        var show1 = document.getElementById('results').innerHTML;
+        document.getElementById('num').value = 1212;
+        document.getElementById('guess').click();
+        document.getElementById('num').value = 1212;
+        document.getElementById('guess').click();
+        document.getElementById('num').value = 1212;
+        document.getElementById('guess').click();
+        document.getElementById('num').value = 1212;
+        document.getElementById('guess').click();
+        document.getElementById('num').value = number;
+        document.getElementById('guess').click();
+        var show2 = document.getElementById('results').innerHTML;
+
+        expect(show1).toBe("1A0B");
+        expect(show2).toBe("4A0B恭喜，游戏成功！");
+    })
 
 
 
