@@ -4,7 +4,6 @@ function GuessResults() {
 
 GuessResults.start_play = function () {
     var number = Number.create();
-    console.log(number,"number")
     localStorage.setItem("number", number);
     localStorage.setItem("count", 6);
     document.getElementById('guess').disabled = false;
