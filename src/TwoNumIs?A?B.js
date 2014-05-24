@@ -11,7 +11,6 @@ SimilarityIsWhatType.is_what_type = function (num1, num2) {
         for (var j = 0; j < 4; j += 1) {
             if (four_num1[i] == four_num2[j] && i == j) {
                 a += 1;
-
             }
             if (four_num1[i] == four_num2[j] && i != j) {
                 b += 1;

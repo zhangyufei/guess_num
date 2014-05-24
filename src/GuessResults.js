@@ -24,7 +24,10 @@ GuessResults.compare_two_numbers = function () {
     var num1 = localStorage.getItem("number");
     var count = localStorage.getItem('count');
     var results = SimilarityIsWhatType.is_what_type(num1, num2);
-    console.log(num1, num2, "num")
+    GuessResults.show_results(results, count);
+}
+
+GuessResults.show_results = function (results, count) {
     if (results == '4A0B') {
         document.getElementById('results').innerHTML = results + "恭喜，游戏成功！";
         document.getElementById('guess').disabled = true;

@@ -9,7 +9,6 @@ function change_number(number) {
     var d = number % 10;
     for (var i = 0; i < 9; i += 1) {
         if (i != a && i != b && i != c && i != d) {
-            console.log(a, b, c, d, i, "numhhhhh")
             return a * 1000 + i * 100 + i * 10 + i;
         }
     }
