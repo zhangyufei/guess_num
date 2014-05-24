@@ -30,12 +30,12 @@ GuessResults.compare_two_numbers = function () {
         document.getElementById('guess').disabled = true;
         document.getElementById('num').disabled = true;
     }
-    if (count == 0) {
+    if (count == 0 && results != '4A0B') {
         document.getElementById('results').innerHTML = results + "很遗憾，游戏失败！";
         document.getElementById('guess').disabled = true;
         document.getElementById('num').disabled = true;
     }
-    if(results != '4A0B' && count > 0){
+    if (results != '4A0B' && count > 0) {
         document.getElementById('results').innerHTML = results;
     }
 }
